@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakash Electronics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.8;
+            /* Adjust transparency */
+        }
+
+
+        body {
+
+            color: white;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80 px;
+            background-color: rgb(18, 18, 62);
+            padding: 1rem 5%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: rgb(155, 155, 250);
+        }
+
+        .left {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            margin: 80px 0;
+            align-items: center;
+        }
+
+        .firstSection>div {
+            width: 30%;
+        }
+
+        .leftSection {
+            font-size: 2.5rem;
+
+        }
+
+        .rightSection img {
+            width: 80%;
+            margin: 50px 0;
+            border-radius: 1rem;
+            cursor: pointer;
+        }
+
+        .rightSection img:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .purple {
+            color: white;
+        }
+
+        #element {
+            text-transform: capitalize;
+            color: white;
+            text-decoration: solid;
+            font-weight: bold;
+        }
+
+        .import {
+            color: black;
+        }
+
+        main hr {
+            border: 0;
+            background: rgb(121, 12, 223);
+            height: 1.2px;
+            margin: 40px 84px;
+        }
+
+        .secondSection {
+            max-width: 30vw;
+            margin: auto;
+            margin-left: 100px;
+            height: 80vh;
+        }
+
+        .first {
+            display: flex;
+
+            gap: 150px;
+        }
+
+        .second {
+            display: flex;
+
+            gap: 150px;
+        }
+
+        .python {
+            margin: 20px 0;
+            height: 160px;
+            width: 160px;
+            margin-left: 30px;
+            cursor: pointer;
+            border-radius: 1rem;
+
+        }
+
+        .python:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease-in-out;
+
+        }
+
+        .text {
+            display: flex;
+            gap: 190px;
+            margin-left: 80px;
+            color: black;
+            font-weight: bold;
+        }
+
+
+        .Java {
+            margin: 20px 0;
+            height: 160px;
+            width: 160px;
+            cursor: pointer;
+            border-radius: 1rem;
+        }
+
+        .Java:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .clanguage {
+            margin: 20px 0;
+            height: 160px;
+            width: 160px;
+            cursor: pointer;
+            border-radius: 1rem;
+        }
+
+        .clanguage:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .html {
+            margin: 20px 0;
+            height: 160px;
+            width: 160px;
+            cursor: pointer;
+            border-radius: 1rem;
+        }
+
+        .html:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .second .teambuild {
+            margin: 20px 0;
+            height: 160px;
+            width: 160px;
+            margin-left: 30px;
+            cursor: pointer;
+            border-radius: 1rem;
+        }
+
+        .teambuild:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .profcomm {
+            margin: 20px 0;
+            height: 160px;
+            width: 160px;
+            cursor: pointer;
+            border-radius: 1rem;
+
+        }
+
+        .profcomm:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .problemsolve {
+            margin: 20px 0;
+            height: 160px;
+            width: 160px;
+            cursor: pointer;
+            border-radius: 1rem;
+        }
+
+        .problemsolve:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .text2 {
+            display: flex;
+            gap: 190px;
+            margin-left: 80px;
+            color: black;
+            font-weight: bold;
+            text-transform: capitalize;
+
+        }
+
+        .p2 {
+            margin-left: 20px;
+        }
+
+        .criticalthink {
+            margin: 20px 0;
+            height: 160px;
+            width: 160px;
+            cursor: pointer;
+            border-radius: 1rem;
+        }
+
+        .criticalthink:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .p3 {
+            margin-left: 50px;
+        }
+
+        .products {
+            color: black;
+            text-align: center;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1.5rem;
+            padding: 5px;
+        }
+
+        .hourmeter {
+            margin-left: 50px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .firstSection {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .firstSection>div {
+                width: 80%;
+            }
+
+            .rightSection img {
+                width: 60%;
+            }
+
+            .secondSection {
+                max-width: 80vw;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .first,
+            .second,
+            .text,
+            .text2 {
+                gap: 50px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .leftSection {
+                font-size: 1.8rem;
+            }
+
+            .rightSection img {
+                width: 80%;
+            }
+
+            .secondSection {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .python,
+            .Java,
+            .clanguage,
+            .html,
+            .teambuild,
+            .profcomm,
+            .problemsolve,
+            .criticalthink {
+                width: 120px;
+                height: 120px;
+            }
+
+            .text,
+            .text2 {
+                gap: 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .leftSection {
+                font-size: 1.5rem;
+            }
+
+            .rightSection img {
+                width: 100%;
+            }
+
+            .python,
+            .Java,
+            .clanguage,
+            .html,
+            .teambuild,
+            .profcomm,
+            .problemsolve,
+            .criticalthink {
+                width: 100px;
+                height: 100px;
+            }
+
+            .text,
+            .text2 {
+                font-size: 0.8rem;
+                gap: 10px;
+            }
+
+            .products {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay loop muted playsinline id="myVideo">
+        <source src="5846591-hd_1920_1080_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <header>
+
+        <nav>
+            <div class="left">Prakash Electronics</div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                <span class="purple"><b>Prakash Electronics</b></span>
+                <div class="import"><b>Importer & Stockists of</b></div>
+
+                <span id="element"></span>
+            </div>
+            </div>
+            <div class="rightSection">
+                <img src="https://3.imimg.com/data3/HP/CR/MY-3059290/prakash-electronics-logo-120x120.png" alt="">
+            </div>
+        </section>
+        <hr>
+        <section class="secondSection">
+            <h3 class="products">Main Products</h3>
+            <div class="first"><img class="python"
+                    src="https://i.pinimg.com/736x/0b/c1/93/0bc193794acc27bec7e02e70c13a7ded.jpg" alt="">
+                <img class="Java" src="https://i.pinimg.com/736x/18/ed/4a/18ed4a04b3ee754298780b16d711ff6f.jpg" alt="">
+                <img class="clanguage" src="https://i.pinimg.com/736x/0c/bd/de/0cbddef90e56baed5196685da5627184.jpg"
+                    alt="">
+                <img class="html" src="https://i.pinimg.com/736x/42/75/02/427502543a2752e2e8f3fcd905f355cf.jpg" alt="">
+            </div>
+            <div class="text">
+                <p>Elcon gold capillary thermostat</p>
+                <p>FG/RTD/Teflon cable</p>
+                <p>Simmerstat</p>
+                <p class="hourmeter">Hour meter</p>
+            </div><br>
+            <div class="second"> <img src="https://i.pinimg.com/736x/07/5f/1c/075f1cdbb4772e214f120e8e47446b54.jpg"
+                    alt="" class="teambuild">
+                <img src="https://i.pinimg.com/736x/62/e1/c4/62e1c4ebdcde94f9bcc5a423ac2308ce.jpg" alt=""
+                    class="profcomm">
+                <img src="https://i.pinimg.com/736x/5a/9b/20/5a9b2015be39e13cd6188454f0c11489.jpg" alt=""
+                    class="problemsolve">
+                <img src="https://i.pinimg.com/736x/51/3f/4e/513f4e089f0906c00b8596e8d3cec27d.jpg" alt=""
+                    class="criticalthink">
+            </div>
+            <div class="text2">
+                <p>Nichrome Wire & Ribbon</p>
+                <p>kanthal Wires</p>
+                <p class="p2">bare thermocouple wire</p>
+                <p class="p3">spark ferrous-base wire</p>
+            </div>
+
+        </section>
+    </main>
+
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Stem type gesyer thermostat', 'Teflon cable', ' FG Cable Bare Copper/SS Mix', 'RTD cable', ' Compensating cable', '1/22 twisted cable', 'silica quartz tube', 'Infra heat ceramic connector', 'Elcon gold capillary thermostat', 'Thermocouple spring loaded', 'Girish all item', 'Clamp meter & multimeter', 'Thermo hygrometer', 'Simmerstat', 'Elcon', 'Ajay', 'Sunbim', 'Hour meter', 'FG sleeves 1.1kV & 4k', 'Frontier timer', 'Nichrome wire', 'Nichrome ribbon', 'Cu-Ni wire', 'Kanthal wires', 'Beryllium copper', 'MGO powder', 'EGO capillary thermostat', 'Thermocouple connector', 'Mineral insulated cable', 'Backer coil', 'Theeta', 'Bare thermocouple wire', 'Rotary switch', 'Khabsrdar', 'Mastech 266 @ 830L', 'Spark ferrous base wire'],
+            typeSpeed: 50,
+        });
+    </script>
+
+</body>
+
+</html>

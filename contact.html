@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Prakash Electronics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(31, 155, 151);
+            color: white;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: rgb(18, 18, 62);
+        }
+
+        nav .left {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: rgb(155, 155, 250);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5vh 5vw;
+        }
+
+        /* Google Maps Background */
+        .map-background {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .map-background iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: invert(90%) hue-rotate(180deg) brightness(0.7) contrast(1.2);
+        }
+
+        /* Clickable Overlay */
+        .map-overlay {
+            position: absolute;
+            top: 43%;
+            left: 50%;
+            width: 3vw;
+            height: 3vw;
+            z-index: 10;
+            background: transparent;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+            max-width: 40px;
+            max-height: 40px;
+            min-width: 20px;
+            min-height: 20px;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info h1 span {
+            color: purple;
+        }
+
+        .info .title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .info p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            width: 100%;
+            max-width: 500px;
+            background-color: #111;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(51, 54, 255, 0.381);
+            border: 2px solid #3336ffd0;
+        }
+
+        .contact-form h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        form input,
+        form textarea,
+        form button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            background-color: #222;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-bottom 0.3s ease;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-bottom: 2px solid #ff3333;
+        }
+
+        form button {
+            background-color: #3336ffd0;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #0030cc;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: #555;
+            background-color: #0a0a0a;
+            border-top: 1px solid #222;
+        }
+        .info span{
+            color: purple;
+        }
+
+        /* 🔥 Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+
+            nav .left {
+                font-size: 1.2rem;
+            }
+
+            .contact-section {
+                padding: 3vh 5vw;
+            }
+
+            .contact-info h1 {
+                font-size: 2rem;
+            }
+
+            .info .title,
+            .info p {
+                font-size: 1rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .map-background {
+                height: 250px;
+            }
+
+            .map-overlay {
+                width: 5vw;
+                height: 5vw;
+                max-width: 30px;
+                max-height: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 0.5rem;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            nav ul li a {
+                font-size: 0.875rem;
+            }
+
+            .contact-info h1 {
+                font-size: 1.8rem;
+            }
+
+            .contact-form {
+                padding: 1rem;
+            }
+
+            .map-background {
+                height: 200px;
+            }
+
+            .map-overlay {
+                width: 6vw;
+                height: 6vw;
+                max-width: 25px;
+                max-height: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="left">Prakash Electronics</div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contact-info">
+            <h1><span>Contact </span>us</h1>
+        </div>
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <!-- Google Maps Background -->
+            <div class="map-background">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.9905448302935!2d72.83072187456578!3d19.113565850305306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce21a50d03e9%3A0x85a64e3a43b03af0!2sPrakash%20Electronics!5e0!3m2!1sen!2sin!4v1742449819063!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+
+                <!-- Clickable Overlay -->
+                <a href="https://maps.google.com/?q=Prakash+Electronics,+Lohar+Chawl,+Mumbai" target="_blank"
+                    class="map-overlay" title="Open in Google Maps">
+                </a>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+
+                <div class="info">
+                    <p class="title"><span>Store hours</span></p>
+                    <p>Lohar Chawl, Mumbai, India</p>
+                    <p class="title">Contacts</p>
+                    <p>prakash@electronics.com<br>+91 98765 43210</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2>Contact form</h2>
+                <form action="#">
+                    <input type="text" placeholder="NAME" required />
+                    <input type="email" placeholder="EMAIL" required />
+                    <textarea placeholder="MESSAGE" required></textarea>
+                    <button type="submit">SEND MESSAGE</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>© 2025 Prakash Electronics.</footer>
+</body>
+
+</html>

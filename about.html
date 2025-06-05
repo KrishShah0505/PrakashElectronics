@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <title>Prakash Electronics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+
+        body {
+
+            color: white;
+            font-family: "Poppins", sans-serif;
+            background-color: rgb(31, 155, 151);
+            color: #fff;
+        }
+
+       
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: rgb(18, 18, 62);
+  padding: 1rem 5%;
+}
+
+nav .left {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+nav .right ul {
+  display: flex;
+  list-style: none;
+}
+
+nav .right ul li {
+  margin: 0 1rem;
+}
+
+nav .right ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav .right ul li a:hover {
+  color: rgb(155, 155, 250);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
+
+
+        .left {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p {
+            margin: 0;
+        }
+
+        section {
+            padding: 60px 10vw;
+        }
+
+        /* About Section */
+        .about-section {
+            text-align: center;
+            padding: 1px 10vw;
+            background: url('background.jpg') no-repeat center center/cover;
+        }
+
+        .about-section h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        /* Content Section */
+        .content-section {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .content-image {
+            width: 25%;
+            border-radius: 10px;
+            margin-left: 65vh;
+        }
+
+        
+
+        .content-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .content-text p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #fff;
+            color: #000;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ddd;
+        }
+
+        .btn a hover {
+            text-decoration: none;
+            color: #ddd;
+        }
+
+        .btn a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        /* Skills Section */
+        .skills-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .skills-section p {
+            text-align: center;
+            margin-bottom: 40px;
+            opacity: 0.7;
+        }
+
+        .skills {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .skill {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .skill p {
+            width: 150px;
+            font-size: 1rem;
+        }
+
+        .progress {
+            flex: 1;
+            height: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #fff;
+        }
+
+        .skill span {
+            font-size: 1rem;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .stat p {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+        .about-section h1 span{
+            color: purple;
+        }
+
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-section {
+                flex-direction: column;
+            }
+
+            .content-image {
+                width: 100%;
+            }
+
+            .skills {
+                gap: 15px;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <nav>
+            <div class="left">Prakash Electronics</div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+    <!-- About Us Section -->
+    <section class="about-section">
+        <h1><span>About</span> Us</h1>
+
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="content">
+            <img src="https://3.imimg.com/data3/HP/CR/MY-3059290/prakash-electronics-logo-120x120.png"
+                alt="Video Editor" class="content-image" />
+            <div class="content-text">
+               
+                <h3> Since 1971, Powering Progress with Precision.</h3>
+                <p>
+                  
+
+Prakash Electronics was founded by Prakash Shah in 1971 with a simple mission — to bring world-class industrial electronic solutions to India’s growing manufacturing landscape.<br>What started as a small, family-run operation has grown into a trusted name in the import and export of high-quality heating elements and specialized industrial electronics.
+
+<br><br>Today, Prakash Electronics is led by the second generation — Nihir Shah and Snehal Shah,  who have continued the legacy with the same values: integrity, innovation, and long-term partnerships. <br>With over five decades of experience, the company has built a reputation for delivering reliable, customized, and efficient solutions for clients across industries, both locally and globally.
+
+<br>From sourcing top-tier components to offering tailored advice and timely delivery, we don’t just supply — we solve problems, spark growth, and support your operations from the inside out.
+
+<br><br>This isn’t just business. It’s two generations of trust, commitment, and excellence.
+
+<br>Prakash Electronics.
+                </p>
+                <button class="btn"> <a href="contact.html">Contact Us</a></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <h2>Our Customers</h2>
+        <p>
+           We have shown our commitment to quality and service to a wide range of clients, including:
+            
+        </p>
+        <div class="skills">
+            <div class="skill">
+                <p>Traders</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 85%;"></div>
+                </div>
+                <span>85%</span>
+            </div>
+            <div class="skill">
+                <p>Traders and Distributors</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 90%;"></div>
+                </div>
+                <span>90%</span>
+            </div>
+            <div class="skill">
+                <p>Other Importers</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 77%;"></div>
+                </div>
+                <span>77%</span>
+            </div>
+        </div>
+        <div class="stats">
+            <div class="stat">
+                <h3>50+</h3>
+                <p>Year Of Experience</p>
+            </div>
+            <div class="stat">
+                <h3>2,000+</h3>
+                <p>Imports Done</p>
+            </div>
+            <div class="stat">
+                <h3>100+</h3>
+                <p>Satisfied Clients</p>
+            </div>
+            <div class="stat">
+                <h3>EMA</h3>
+                <p>Member</p>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
