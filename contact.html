@@ -319,12 +319,14 @@
 
             <!-- Contact Form -->
             <div class="contact-form">
-                <h2>Contact form</h2>
-                <form action="#">
-                    <input type="text" placeholder="NAME" required />
-                    <input type="email" placeholder="EMAIL" required />
-                    <textarea placeholder="MESSAGE" required></textarea>
-                    <button type="submit">SEND MESSAGE</button>
+                <form action="https://formsubmit.co/shahkrishcool@gmail.com" method="POST">
+                    <input type="hidden" name="_next" value="https://prakash-electronics.vercel.app/thankyou.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    <h2>Get in Touch</h2>
+                    <input type="text" name="name" placeholder="Your Name" required />
+                    <input type="email" name="email" placeholder="Your Email" required />
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
                 </form>
             </div>
         </section>
