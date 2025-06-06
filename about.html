@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     
-    <title>Prakash Electronics</title>
+    <title>Prakash Electronics - About Us</title>
     <style>
         * {
             margin: 0;
@@ -16,82 +16,71 @@
             box-sizing: border-box;
         }
 
-
-
-
         body {
-
-            color: white;
             font-family: "Poppins", sans-serif;
             background-color: rgb(31, 155, 151);
             color: #fff;
+            /* Prevents horizontal scroll */
+            overflow-x: hidden;
         }
 
-       
+        /* --- Navigation Bar --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(18, 18, 62);
+            padding: 1rem 5%;
+            position: relative;
+        }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-  background-color: rgb(18, 18, 62);
-  padding: 1rem 5%;
-}
-
-nav .left {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: white;
-}
-
-nav .right ul {
-  display: flex;
-  list-style: none;
-}
-
-nav .right ul li {
-  margin: 0 1rem;
-}
-
-nav .right ul li a {
-  text-decoration: none;
-  color: white;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-nav .right ul li a:hover {
-  color: rgb(155, 155, 250);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul li {
-    margin: 10px 0;
-  }
-}
-
-
-        .left {
+        nav .left {
             font-size: 1.5rem;
             font-weight: 700;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        p {
+        nav .right ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav .right ul li {
+            margin: 0 1rem;
+        }
+
+        nav .right ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav .right ul li a:hover {
+            color: rgb(155, 155, 250);
+        }
+
+        /* --- Hamburger Menu Icon --- */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 2rem;
+            height: 2rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .hamburger .bar {
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+        }
+        
+        h1, h2, h3, h4, p {
             margin: 0;
         }
 
@@ -99,10 +88,11 @@ nav .right ul li a:hover {
             padding: 60px 10vw;
         }
 
-        /* About Section */
+        /* --- About Section --- */
         .about-section {
             text-align: center;
-            padding: 1px 10vw;
+            padding-top: 60px;
+            padding-bottom: 60px;
             background: url('background.jpg') no-repeat center center/cover;
         }
 
@@ -110,35 +100,39 @@ nav .right ul li a:hover {
             font-size: 3rem;
             margin-bottom: 10px;
         }
-
-        .about-section p {
-            font-size: 1.2rem;
-            opacity: 0.7;
+        
+        .about-section h1 span {
+            color: purple;
         }
 
-        /* Content Section */
+        /* --- Content Section --- */
         .content-section {
             display: flex;
             gap: 40px;
             align-items: center;
         }
-
+        
+        /* This was the cause of the horizontal scrollbar. Replaced with a proper flex layout. */
         .content-image {
-            width: 25%;
+            width: 30%;
+            max-width: 150px; /* Control max size */
+            height: auto;
             border-radius: 10px;
-            margin-left: 65vh;
         }
 
-        
+        .content-text {
+            flex: 1; /* Allows the text to fill the remaining space */
+        }
 
         .content-text h3 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 20px;
         }
 
         .content-text p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 20px;
+            line-height: 1.6;
         }
 
         .btn {
@@ -149,40 +143,40 @@ nav .right ul li a:hover {
             border-radius: 30px;
             cursor: pointer;
             font-size: 1rem;
+            font-weight: 600;
             transition: 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn:hover {
             background-color: #ddd;
         }
-
-        .btn a hover {
-            text-decoration: none;
-            color: #ddd;
-        }
-
+        
         .btn a {
             text-decoration: none;
             color: #000;
         }
 
-        /* Skills Section */
+        /* --- Skills Section --- */
         .skills-section h2 {
             font-size: 2rem;
             text-align: center;
             margin-bottom: 10px;
         }
 
-        .skills-section p {
+        .skills-section > p {
             text-align: center;
             margin-bottom: 40px;
-            opacity: 0.7;
+            opacity: 0.9;
         }
 
         .skills {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            max-width: 800px;
+            margin: 0 auto; /* Center the skills container */
         }
 
         .skill {
@@ -194,12 +188,14 @@ nav .right ul li a:hover {
         .skill p {
             width: 150px;
             font-size: 1rem;
+            text-align: left;
+            opacity: 1;
         }
 
         .progress {
             flex: 1;
             height: 10px;
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.2);
             border-radius: 5px;
             overflow: hidden;
         }
@@ -211,13 +207,19 @@ nav .right ul li a:hover {
 
         .skill span {
             font-size: 1rem;
+            font-weight: 700;
         }
 
-        /* Stats */
+        /* --- Stats Section --- */
         .stats {
             display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
+            justify-content: space-around;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 20px;
+            margin-top: 60px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .stat {
@@ -231,104 +233,135 @@ nav .right ul li a:hover {
 
         .stat p {
             font-size: 1rem;
-            opacity: 0.7;
-        }
-        .about-section h1 span{
-            color: purple;
+            opacity: 0.9;
         }
 
-
-
-        /* Responsive */
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .content-text h3 { font-size: 1.8rem; }
+
+            /* Hamburger Menu Logic */
+            .hamburger {
+                display: flex;
+            }
+
+            nav .right {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: rgb(18, 18, 62);
+                padding: 1rem 0;
+                z-index: 100;
+            }
+            
+            nav .right.active {
+                display: flex;
+            }
+
+            nav .right ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            nav .right ul li {
+                margin: 1rem 0;
+            }
+            
+            /* Content Layout */
             .content-section {
                 flex-direction: column;
+                text-align: center;
             }
 
             .content-image {
-                width: 100%;
+                width: 150px; /* Fixed width for mobile */
+                margin: 0 auto 30px auto; /* Center the image with bottom margin */
             }
 
             .skills {
                 gap: 15px;
             }
 
-            .stats {
+            .skill {
                 flex-direction: column;
-                gap: 20px;
+                gap: 10px;
+                align-items: stretch;
+            }
+            .skill p {
+                width: auto;
+                text-align: center;
+            }
+            .skill span {
+                text-align: center;
             }
 
-
+            .stats {
+                flex-direction: column;
+                gap: 30px;
+            }
         }
     </style>
 </head>
 
 <body>
     <header>
-
         <nav>
             <div class="left">Prakash Electronics</div>
-            <div class="right">
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="right" id="nav-links">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Products</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-
                 </ul>
             </div>
-
         </nav>
     </header>
-    <!-- About Us Section -->
+
     <section class="about-section">
         <h1><span>About</span> Us</h1>
-
     </section>
 
-    <!-- Content Section -->
     <section class="content-section">
-        <div class="content">
-            <img src="https://3.imimg.com/data3/HP/CR/MY-3059290/prakash-electronics-logo-120x120.png"
-                alt="Video Editor" class="content-image" />
-            <div class="content-text">
-               
-                <h3> Since 1971, Powering Progress with Precision.</h3>
-                <p>
-                  
-
-Prakash Electronics was founded by Prakash Shah in 1971 with a simple mission — to bring world-class industrial electronic solutions to India’s growing manufacturing landscape.<br>What started as a small, family-run operation has grown into a trusted name in the import and export of high-quality heating elements and specialized industrial electronics.
-
-<br><br>Today, Prakash Electronics is led by the second generation — Nihir Shah and Snehal Shah,  who have continued the legacy with the same values: integrity, innovation, and long-term partnerships. <br>With over five decades of experience, the company has built a reputation for delivering reliable, customized, and efficient solutions for clients across industries, both locally and globally.
-
-<br>From sourcing top-tier components to offering tailored advice and timely delivery, we don’t just supply — we solve problems, spark growth, and support your operations from the inside out.
-
-<br><br>This isn’t just business. It’s two generations of trust, commitment, and excellence.
-
-<br>Prakash Electronics.
-                </p>
-                <button class="btn"> <a href="contact.html">Contact Us</a></button>
-            </div>
+        <img src="https://3.imimg.com/data3/HP/CR/MY-3059290/prakash-electronics-logo-120x120.png"
+             alt="Prakash Electronics Logo" class="content-image" />
+        <div class="content-text">
+            <h3>Since 1971, Powering Progress with Precision.</h3>
+            <p>
+                Prakash Electronics was founded by Prakash Shah in 1971 with a simple mission — to bring world-class industrial electronic solutions to India’s growing manufacturing landscape.<br><br>What started as a small, family-run operation has grown into a trusted name in the import and export of high-quality heating elements and specialized industrial electronics.
+                <br><br>Today, Prakash Electronics is led by the second generation — Nihir Shah and Snehal Shah, who have continued the legacy with the same values: integrity, innovation, and long-term partnerships. <br>With over five decades of experience, the company has built a reputation for delivering reliable, customized, and efficient solutions for clients across industries, both locally and globally.
+                <br><br>This isn’t just business. It’s two generations of trust, commitment, and excellence.
+            </p>
+            <a href="contact.html" class="btn">Contact Us</a>
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section class="skills-section">
         <h2>Our Customers</h2>
         <p>
-           We have shown our commitment to quality and service to a wide range of clients, including:
-            
+            We have shown our commitment to quality and service to a wide range of clients, including:
         </p>
         <div class="skills">
             <div class="skill">
-                <p>Traders</p>
+                <p>OEMs</p>
                 <div class="progress">
                     <div class="progress-bar" style="width: 85%;"></div>
                 </div>
                 <span>85%</span>
             </div>
             <div class="skill">
-                <p>Traders and Distributors</p>
+                <p>Traders & Distributors</p>
                 <div class="progress">
                     <div class="progress-bar" style="width: 90%;"></div>
                 </div>
@@ -345,7 +378,7 @@ Prakash Electronics was founded by Prakash Shah in 1971 with a simple mission �
         <div class="stats">
             <div class="stat">
                 <h3>50+</h3>
-                <p>Year Of Experience</p>
+                <p>Years Of Experience</p>
             </div>
             <div class="stat">
                 <h3>2,000+</h3>
@@ -361,8 +394,15 @@ Prakash Electronics was founded by Prakash Shah in 1971 with a simple mission �
             </div>
         </div>
     </section>
+    
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.getElementById('nav-links');
 
-
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>

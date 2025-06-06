@@ -23,8 +23,6 @@
             color: #333;
         }
 
-
-
         nav {
             display: flex;
             justify-content: space-between;
@@ -32,6 +30,7 @@
             height: 80px;
             background-color: rgb(18, 18, 62);
             padding: 1rem 5%;
+            position: relative; /* For positioning the mobile menu */
         }
 
         nav .left {
@@ -60,20 +59,59 @@
             color: rgb(155, 155, 250);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 10px;
-            }
+        /* Hamburger Menu Icon */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 2rem;
+            height: 2rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
 
-            nav ul {
+        .hamburger .bar {
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Responsive Design for Navbar */
+        @media (max-width: 768px) {
+            nav .right {
+                display: none; /* Hide links by default on mobile */
                 flex-direction: column;
                 align-items: center;
+                position: absolute;
+                top: 80px; /* Position below the navbar */
+                left: 0;
+                width: 100%;
+                background-color: rgb(18, 18, 62);
+                padding: 1rem 0;
+                z-index: 100;
             }
 
-            nav ul li {
-                margin: 10px 0;
+            nav .right.active {
+                display: flex; /* Show menu when active */
+            }
+
+            nav .right ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            nav .right ul li {
+                margin: 1rem 0;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: flex; /* Show hamburger icon on mobile */
             }
         }
 
@@ -95,6 +133,7 @@
             cursor: pointer;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
         .product-card img {
@@ -105,8 +144,8 @@
 
         /* Hover effect */
         .product-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
         /* Info section under image */
@@ -133,7 +172,12 @@
     <header>
         <nav>
             <div class="left">Prakash Electronics</div>
-            <div class="right">
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="right" id="nav-links">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Products</a></li>
@@ -297,7 +341,7 @@
         </div>
         <div class="product-card"><img src="Mineral-Insulated-Cable.jpg" alt="Product 26">
             <div class="product-info">
-                <h2>Mineral Insulated Cable</h2>
+                <h2>Mineral Insulated Cable</h2>
 
             </div>
         </div>
@@ -327,7 +371,7 @@
         </div>
         <div class="product-card"><img src="spark-resistance-wire-250x250.jpg" alt="Product 31">
             <div class="product-info">
-                <h2>Spark Ferrous Base Wire</h2>
+                <h2>Spark Ferrous Base Wire</h2>
 
             </div>
         </div>
@@ -341,6 +385,15 @@
     <footer style="text-align:center; padding: 1rem; background-color: rgb(18, 18, 62); color:white;">
     &copy; 2025 Prakash Electronics. All rights reserved.
 </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 
 </body>
 
