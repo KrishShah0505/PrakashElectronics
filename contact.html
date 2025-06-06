@@ -22,7 +22,7 @@
             color: white;
             font-family: "Poppins", sans-serif;
         }
-        
+
         /* Navigation */
         nav {
             display: flex;
@@ -31,7 +31,8 @@
             height: 80px;
             padding: 1rem 5%;
             background-color: rgb(18, 18, 62);
-            position: relative; /* Needed for the mobile menu */
+            position: relative;
+            /* Needed for the mobile menu */
         }
 
         nav .left {
@@ -77,7 +78,7 @@
             background-color: white;
             border-radius: 10px;
         }
-        
+
         main {
             padding: 40px 5vw;
         }
@@ -87,7 +88,7 @@
             text-align: center;
             margin-bottom: 40px;
         }
-        
+
         .page-header h1 {
             font-size: 2.5rem;
             font-weight: 700;
@@ -104,7 +105,7 @@
             align-items: center;
             gap: 40px;
         }
-        
+
         /* Google Maps */
         .map-container {
             position: relative;
@@ -138,7 +139,7 @@
             flex: 1;
             min-width: 220px;
         }
-        
+
         .info-item i {
             font-size: 1.5rem;
             color: purple;
@@ -156,7 +157,7 @@
             color: #eee;
             line-height: 1.6;
         }
-        
+
         /* Contact Form */
         .contact-form {
             width: 100%;
@@ -175,7 +176,9 @@
             text-align: center;
         }
 
-        form input, form textarea, form button {
+        form input,
+        form textarea,
+        form button {
             width: 100%;
             padding: 12px;
             margin-bottom: 1rem;
@@ -189,7 +192,8 @@
             transition: border-color 0.3s ease;
         }
 
-        form input:focus, form textarea:focus {
+        form input:focus,
+        form textarea:focus {
             border-color: #3336ffd0;
         }
 
@@ -216,9 +220,10 @@
             background-color: rgb(18, 18, 62);
             margin-top: 40px;
         }
-        
+
         /* 🔥 Media Queries for Responsiveness */
         @media (max-width: 768px) {
+
             /* Hamburger Menu Logic */
             .hamburger {
                 display: flex;
@@ -250,7 +255,7 @@
             nav .right ul li {
                 margin: 1rem 0;
             }
-            
+
             /* Page Content Adjustments */
             .page-header h1 {
                 font-size: 2rem;
@@ -292,33 +297,32 @@
         <div class="page-header">
             <h1><span>Contact </span>Us</h1>
         </div>
-        
+
         <div class="contact-container">
-            
+
             <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15095.57861314917!2d72.8251599388339!3d18.935820422485547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1e0d7c7b8af%3A0x425a7536a75f4038!2sLohar%20Chawl!5e0!3m2!1sen!2sin" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                  <iframe                    
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.9905448302935!2d72.83072187456578!3d19.113565850305306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce21a50d03e9%3A0x85a64e3a43b03af0!2sPrakash%20Electronics!5e0!3m2!1sen!2sin!4v1742449819063!5m2!1sen!2sin"
+                                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+                                    </iframe>
             </div>
 
             <div class="contact-details">
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <h3>Our Address</h3>
-                    <p>Lohar Chawl, Kalbadevi,<br>Mumbai, Maharashtra, India</p>
+                    <p>165 Amrut Niaws,Lohar Chawl, Kalbadevi,<br>Mumbai, Maharashtra, India</p>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-clock"></i>
                     <h3>Store Hours</h3>
-                    <p>Mon - Sat: 10:00 AM - 8:00 PM<br>Sunday: Closed</p>
+                    <p>Mon - Sat: 10:00 AM - 6:00 PM<br>Sunday: Closed</p>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-phone-alt"></i>
                     <h3>Contact Us</h3>
-                    <p>prakash@electronics.com<br>+91 98765 43210</p>
+                    <p>prakash@electronics.com<br>+91 9820493794</p>
                 </div>
             </div>
 
