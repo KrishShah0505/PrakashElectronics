@@ -7,10 +7,10 @@
     <title>Contact Us - Prakash Electronics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <style>
-        /* Base Styling */
         * {
             margin: 0;
             padding: 0;
@@ -23,7 +23,6 @@
             font-family: "Poppins", sans-serif;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -32,12 +31,14 @@
             padding: 1rem 5%;
             background-color: rgb(18, 18, 62);
             position: relative;
-            /* Needed for the mobile menu */
         }
 
         nav .left {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.55rem;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            color: white;
         }
 
         nav .right ul {
@@ -60,7 +61,6 @@
             color: rgb(155, 155, 250);
         }
 
-        /* Hamburger Menu Icon */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -83,7 +83,6 @@
             padding: 40px 5vw;
         }
 
-        /* --- Page Header --- */
         .page-header {
             text-align: center;
             margin-bottom: 40px;
@@ -98,7 +97,6 @@
             color: purple;
         }
 
-        /* --- Contact Section Layout --- */
         .contact-container {
             display: flex;
             flex-direction: column;
@@ -106,7 +104,6 @@
             gap: 40px;
         }
 
-        /* Google Maps */
         .map-container {
             position: relative;
             width: 100%;
@@ -124,7 +121,6 @@
             filter: invert(90%) hue-rotate(180deg) brightness(0.7) contrast(1.2);
         }
 
-        /* Contact Details */
         .contact-details {
             display: flex;
             justify-content: center;
@@ -158,7 +154,6 @@
             line-height: 1.6;
         }
 
-        /* Contact Form */
         .contact-form {
             width: 100%;
             max-width: 600px;
@@ -187,7 +182,7 @@
             border-radius: 4px;
             color: #fff;
             font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
+            font-family: "Poppins", sans-serif;
             outline: none;
             transition: border-color 0.3s ease;
         }
@@ -211,7 +206,6 @@
             background-color: #0030cc;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 1.5rem;
@@ -221,10 +215,7 @@
             margin-top: 40px;
         }
 
-        /* 🔥 Media Queries for Responsiveness */
         @media (max-width: 768px) {
-
-            /* Hamburger Menu Logic */
             .hamburger {
                 display: flex;
             }
@@ -256,7 +247,6 @@
                 margin: 1rem 0;
             }
 
-            /* Page Content Adjustments */
             .page-header h1 {
                 font-size: 2rem;
             }
@@ -277,11 +267,13 @@
     <header>
         <nav>
             <div class="left">Prakash Electronics</div>
+
             <button class="hamburger" aria-label="Toggle navigation">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
+
             <div class="right" id="nav-links">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -301,42 +293,80 @@
         <div class="contact-container">
 
             <div class="map-container">
-                  <iframe                    
+                <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.9905448302935!2d72.83072187456578!3d19.113565850305306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce21a50d03e9%3A0x85a64e3a43b03af0!2sPrakash%20Electronics!5e0!3m2!1sen!2sin!4v1742449819063!5m2!1sen!2sin"
-                                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-
-                                    </iframe>
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
 
             <div class="contact-details">
+
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <h3>Our Address</h3>
-                    <p>165 Amrut Niaws,Lohar Chawl, Kalbadevi,<br>Mumbai, Maharashtra, India</p>
+                    <p>
+                        165 Amrut Niaws, Lohar Chawl, Kalbadevi,<br>
+                        Mumbai, Maharashtra, India
+                    </p>
                 </div>
+
                 <div class="info-item">
                     <i class="fas fa-clock"></i>
                     <h3>Store Hours</h3>
-                    <p>Mon - Sat: 10:00 AM - 6:00 PM<br>Sunday: Closed</p>
+                    <p>
+                        Mon - Sat: 10:00 AM - 6:00 PM<br>
+                        Sunday: Closed
+                    </p>
                 </div>
+
                 <div class="info-item">
                     <i class="fas fa-phone-alt"></i>
                     <h3>Contact Us</h3>
-                    <p>prakash@electronics.com<br>+91 9820493794</p>
+                    <p>
+                        prakash@electronics.com<br>
+                        +91 9820493794
+                    </p>
                 </div>
+
             </div>
 
             <div class="contact-form">
-                <form action="shahkrishcool@gmail.com" method="POST">
-                    <input type="hidden" name="_next" value="https://prakash-electronics.vercel.app//thankyou.html">
+                <form action="https://formsubmit.co/shahkrishcool@gmail.com" method="POST">
+
+                    <input type="hidden" name="_subject" value="New Enquiry - Prakash Electronics">
+                    <input type="hidden" name="_next" value="https://prakash-electronics.vercel.app/thankyou.html">
                     <input type="hidden" name="_captcha" value="false">
+
                     <h2>Get in Touch</h2>
-                    <input type="text" name="name" placeholder="Your Name" required />
-                    <input type="email" name="email" placeholder="Your Email" required />
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        required
+                    />
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Your Email"
+                        required
+                    />
+
+                    <textarea
+                        name="message"
+                        rows="5"
+                        placeholder="Your Message"
+                        required
+                    ></textarea>
+
                     <button type="submit">Send Message</button>
+
                 </form>
             </div>
+
         </div>
     </main>
 
@@ -352,6 +382,6 @@
             navLinks.classList.toggle('active');
         });
     </script>
-</body>
 
+</body>
 </html>
