@@ -4,18 +4,33 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Grid</title>
+
+    <title>Products | Prakash Electronics</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
-        /* Reset and base styles */
+
+        /* =========================================
+           RESET
+        ========================================= */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+
+        /* =========================================
+           BODY
+        ========================================= */
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -23,15 +38,25 @@
             color: #333;
         }
 
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             height: 80px;
+
             background-color: rgb(18, 18, 62);
+
             padding: 1rem 5%;
-            position: relative; /* For positioning the mobile menu */
+
+            position: relative;
         }
+
 
         nav .left {
             font-size: 1.5rem;
@@ -39,360 +64,693 @@
             color: white;
         }
 
+
         nav .right ul {
             display: flex;
             list-style: none;
         }
 
+
         nav .right ul li {
             margin: 0 1rem;
         }
 
+
         nav .right ul li a {
             text-decoration: none;
             color: white;
+
             font-size: 1rem;
+
             transition: color 0.3s ease;
         }
+
 
         nav .right ul li a:hover {
             color: rgb(155, 155, 250);
         }
 
-        /* Hamburger Menu Icon */
+
+        /* =========================================
+           HAMBURGER
+        ========================================= */
+
         .hamburger {
             display: none;
+
             flex-direction: column;
             justify-content: space-around;
+
             width: 2rem;
             height: 2rem;
+
             background: transparent;
             border: none;
+
             cursor: pointer;
+
             padding: 0;
         }
+
 
         .hamburger .bar {
             height: 3px;
             width: 100%;
+
             background-color: white;
+
             border-radius: 10px;
+
             transition: all 0.3s ease-in-out;
         }
 
-        /* Responsive Design for Navbar */
-        @media (max-width: 768px) {
-            nav .right {
-                display: none; /* Hide links by default on mobile */
-                flex-direction: column;
-                align-items: center;
-                position: absolute;
-                top: 80px; /* Position below the navbar */
-                left: 0;
-                width: 100%;
-                background-color: rgb(18, 18, 62);
-                padding: 1rem 0;
-                z-index: 100;
-            }
 
-            nav .right.active {
-                display: flex; /* Show menu when active */
-            }
+        /* =========================================
+           PRODUCT GRID
+        ========================================= */
 
-            nav .right ul {
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
-
-            nav .right ul li {
-                margin: 1rem 0;
-                text-align: center;
-            }
-
-            .hamburger {
-                display: flex; /* Show hamburger icon on mobile */
-            }
-        }
-
-
-        /* Product grid styling */
         .product-grid {
+
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            padding: 40px;
+
+            /* EXACTLY 2 PRODUCTS PER ROW */
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 35px;
+
+            padding: 45px 6%;
+
+            max-width: 1500px;
+
+            margin: 0 auto;
+
+            /* Makes cards in the same row equal height */
+            align-items: stretch;
         }
 
-        /* Product card styling */
+
+        /* =========================================
+           PRODUCT CARD
+        ========================================= */
+
         .product-card {
+
             background-color: white;
-            border-radius: 10px;
+
+            border-radius: 12px;
+
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+            cursor: pointer;
+
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.08);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
-        .product-card img {
+
+        .product-card:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =========================================
+           IMAGE CONTAINER
+
+           IMPORTANT:
+           Every product gets the SAME image area.
+        ========================================= */
+
+        .product-image {
+
             width: 100%;
+
+            height: 560px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background-color: white;
+
+            padding: 10px;
+        }
+
+
+        /* =========================================
+           PRODUCT IMAGE
+
+           contain = no cropping
+           no stretching
+           original proportions preserved
+        ========================================= */
+
+        .product-image img {
+
+            max-width: 100%;
+
+            max-height: 100%;
+
+            width: auto;
+
             height: auto;
+
+            object-fit: contain;
+
             display: block;
         }
 
-        /* Hover effect */
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+        /* =========================================
+           PRODUCT NAME
+        ========================================= */
+
+        .product-info {
+
+            height: 70px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 10px 20px;
+
+            border-top: 1px solid #eeeeee;
+
+            background-color: white;
         }
 
-        /* Info section under image */
-        .product-info {
-            padding: 1rem;
-            text-align: center;
-        }
 
         .product-info h2 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+
+            font-size: 1.1rem;
+
+            font-weight: 600;
+
             color: #111;
+
+            line-height: 1.3;
         }
 
-        .product-info p {
-            font-size: 0.875rem;
-            color: #666;
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 1rem;
+
+            background-color: rgb(18, 18, 62);
+
+            color: white;
+
+            margin-top: 20px;
+
+            font-size: 0.9rem;
         }
+
+
+        /* =========================================
+           TABLET / MOBILE
+        ========================================= */
+
+        @media (max-width: 768px) {
+
+            /* Navbar */
+
+            nav .right {
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: center;
+
+                position: absolute;
+
+                top: 80px;
+
+                left: 0;
+
+                width: 100%;
+
+                background-color: rgb(18, 18, 62);
+
+                padding: 1rem 0;
+
+                z-index: 100;
+            }
+
+
+            nav .right.active {
+                display: flex;
+            }
+
+
+            nav .right ul {
+
+                flex-direction: column;
+
+                align-items: center;
+
+                width: 100%;
+            }
+
+
+            nav .right ul li {
+
+                margin: 1rem 0;
+
+                text-align: center;
+            }
+
+
+            .hamburger {
+                display: flex;
+            }
+
+
+            /* ONE PRODUCT PER ROW */
+
+            .product-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+
+                padding: 25px 5%;
+            }
+
+
+            /*
+                Smaller image area on phones
+            */
+
+            .product-image {
+
+                height: 450px;
+            }
+
+
+            .product-info {
+
+                height: 65px;
+            }
+
+
+            .product-info h2 {
+
+                font-size: 1rem;
+            }
+        }
+
+
+        /* =========================================
+           SMALL PHONES
+        ========================================= */
+
+        @media (max-width: 480px) {
+
+            nav {
+
+                height: 70px;
+
+                padding: 1rem 5%;
+            }
+
+
+            nav .left {
+
+                font-size: 1.2rem;
+            }
+
+
+            .product-grid {
+
+                padding: 20px 4%;
+            }
+
+
+            .product-image {
+
+                height: 350px;
+            }
+
+
+            .product-info {
+
+                height: 60px;
+
+                padding: 8px 12px;
+            }
+
+
+            .product-info h2 {
+
+                font-size: 0.95rem;
+            }
+        }
+
     </style>
 
 </head>
 
+
 <body>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
     <header>
+
         <nav>
-            <div class="left">Prakash Electronics</div>
-            <button class="hamburger" aria-label="Toggle navigation">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <div class="right" id="nav-links">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
+
+            <div class="left">
+                Prakash Electronics
             </div>
+
+
+            <button
+                class="hamburger"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+            >
+
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+
+            </button>
+
+
+            <div class="right" id="nav-links">
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="products.html">
+                            Products
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
         </nav>
+
     </header>
 
+
+
+    <!-- =========================================
+         PRODUCTS
+    ========================================= -->
+
     <main class="product-grid">
-        <div class="product-card"><img src="thermostat-stem-type.jpg" alt="Product 1">
-            <div class="product-info">
-                <h2>Stem Type Geyser Thermostat </h2>
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="images/heating elements for high temp appl.png"
+                    alt="Heating Elements for High Temperature Applications"
+                >
 
             </div>
-        </div>
-        <div class="product-card"><img src="s-s-braided-cable-500x500.jpg" alt="Product 2">
+
             <div class="product-info">
-                <h2>FG cable Bare Copper/SS mix </h2>
+
+                <h2>
+                    Heating Elements for High Temperature Applications
+                </h2>
 
             </div>
+
         </div>
-        <div class="product-card"><img src="teflon-cables-2020158291-gahk31lq.jpg" alt="Product 3">
-            <div class="product-info">
-                <h2> Teflon cable</h2>
+
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="images/hre.png"
+                    alt="HRE"
+                >
 
             </div>
-        </div>
-        <div class="product-card"><img src="rtdcable.jpg" alt="Product 4">
+
             <div class="product-info">
-                <h2>RTD Cable </h2>
+
+                <h2>
+                    HRE
+                </h2>
 
             </div>
+
         </div>
-        <div class="product-card"><img src="compensatingcable.jpg" alt="Product 5">
-            <div class="product-info">
-                <h2>Compensating Cable</h2>
+
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="images/Nichrome80-20.png"
+                    alt="Nichrome 80-20"
+                >
 
             </div>
-        </div>
-        <div class="product-card"><img src="twisted-1-22.jpg" alt="Product 6">
+
             <div class="product-info">
-                <h2>1/22 Twisted Cable</h2>
+
+                <h2>
+                    Nichrome 80-20
+                </h2>
 
             </div>
+
         </div>
-        <div class="product-card"><img src="silicaquarts.jpg" alt="Product 7">
-            <div class="product-info">
-                <h2>Silica Quartz Tube</h2>
+
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="images/ocr21al6nb.png"
+                    alt="OCr21Al6Nb"
+                >
 
             </div>
-        </div>
-        <div class="product-card"><img src="ceramic-heater-connector.jpg" alt="Product 8">
+
             <div class="product-info">
-                <h2>Infra Heat Ceramic Connector </h2>
+
+                <h2>
+                    OCr21Al6Nb
+                </h2>
 
             </div>
+
         </div>
-        <div class="product-card"><img src="elcongold.jpg" alt="Product 9">
-            <div class="product-info">
-                <h2> Elcon Gold Capillary Thermostat</h2>
+
+
+
+        <!-- PRODUCT 5 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="images/ocr25al5.png"
+                    alt="OCr25Al5"
+                >
 
             </div>
-        </div>
-        <div class="product-card"><img src="springloadedthermostat.jpg" alt="Product 10">
+
             <div class="product-info">
-                <h2>Thermocouple Spring Loaded</h2>
+
+                <h2>
+                    OCr25Al5
+                </h2>
 
             </div>
+
         </div>
-        <div class="product-card"><img src="girishallitems.jpg" alt="Product 11">
-            <div class="product-info">
-                <h2>Girish all items</h2>
+
+
+
+        <!-- PRODUCT 6 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="images/Sg140.png"
+                    alt="SG140"
+                >
 
             </div>
-        </div>
-        <div class="product-card"><img src="clamp&multi.jpg" alt="Product 12">
+
             <div class="product-info">
-                <h2>Clamp Meter & Multimeter</h2>
+
+                <h2>
+                    SG140
+                </h2>
 
             </div>
+
         </div>
-        <div class="product-card"><img src="thermohygro.jpg" alt="Product 13">
-            <div class="product-info">
-                <h2> Thermo Hygrometer</h2>
+
+
+
+        <!-- PRODUCT 7 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="images/Sg240.png"
+                    alt="SG240"
+                >
 
             </div>
-        </div>
-        <div class="product-card"><img src="simmerstat.jpg" alt="Product 14">
+
             <div class="product-info">
-                <h2>Simmerstat Elcon,Ajay,Sunbim </h2>
+
+                <h2>
+                    SG240
+                </h2>
 
             </div>
+
         </div>
-        <div class="product-card"><img src="hourmeter.jpg" alt="Product 15">
-            <div class="product-info">
-                <h2>Hour Meter</h2>
+
+
+
+        <!-- PRODUCT 8 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="images/sght.png"
+                    alt="SGHT"
+                >
 
             </div>
-        </div>
-        <div class="product-card"><img src="fgsleeve.jpg" alt="Product 16">
+
             <div class="product-info">
-                <h2>FG Sleeves 1.1kv & 4k </h2>
+
+                <h2>
+                    SGHT
+                </h2>
 
             </div>
-        </div>
-        <div class="product-card"><img src="frontiertimer.jpg" alt="Product 17">
-            <div class="product-info">
-                <h2>Frontier Timer</h2>
 
-            </div>
         </div>
-        <div class="product-card"><img src="nichromewire.jpg" alt="Product 18">
-            <div class="product-info">
-                <h2> Nichrome Wire</h2>
 
-            </div>
-        </div>
-        <div class="product-card"><img src="nichromeribbon.jpg" alt="Product 19">
-            <div class="product-info">
-                <h2>Nichrome Ribbon</h2>
 
-            </div>
-        </div>
-        <div class="product-card"><img src="coppernickelwire.jpg" alt="Product 20">
-            <div class="product-info">
-                <h2>Copper-Nickel Wire</h2>
-
-            </div>
-        </div>
-        <div class="product-card"><img src="kanthalwire.jpg" alt="Product 21">
-            <div class="product-info">
-                <h2>Kanthal Wires </h2>
-
-            </div>
-        </div>
-        <div class="product-card"><img src="beryllium-copper-wire.jpg" alt="Product 22">
-            <div class="product-info">
-                <h2>Beryllium Copper</h2>
-
-            </div>
-        </div>
-        <div class="product-card"><img src="mgopowder.jpg" alt="Product 23">
-            <div class="product-info">
-                <h2>MgO powder</h2>
-
-            </div>
-        </div>
-        <div class="product-card"><img src="ego-capillary-thermostat.jpg" alt="Product 24">
-            <div class="product-info">
-                <h2>Ego Capillary Thermostat</h2>
-
-            </div>
-        </div>
-        <div class="product-card"><img src="thermocoupleconnector.jpg" alt="Product 25">
-            <div class="product-info">
-                <h2>Thermocouple Connector</h2>
-
-            </div>
-        </div>
-        <div class="product-card"><img src="Mineral-Insulated-Cable.jpg" alt="Product 26">
-            <div class="product-info">
-                <h2>Mineral Insulated Cable</h2>
-
-            </div>
-        </div>
-        <div class="product-card"><img src="backercoil.jpg" alt="Product 27">
-            <div class="product-info">
-                <h2>Backer Coil</h2>
-
-            </div>
-        </div>
-        <div class="product-card"><img src="theeta.jpg" alt="Product 28">
-            <div class="product-info">
-                <h2> Theeta</h2>
-
-            </div>
-        </div>
-        <div class="product-card"><img src="barethermocouplewire.jpg" alt="Product 29">
-            <div class="product-info">
-                <h2> Bare Thermocouple Wire</h2>
-
-            </div>
-        </div>
-        <div class="product-card"><img src="rotaryswitch.jpg" alt="Product 30">
-            <div class="product-info">
-                <h2>Rotary Switch</h2>
-
-            </div>
-        </div>
-        <div class="product-card"><img src="spark-resistance-wire-250x250.jpg" alt="Product 31">
-            <div class="product-info">
-                <h2>Spark Ferrous Base Wire</h2>
-
-            </div>
-        </div>
-        <div class="product-card"><img src="mastech266.jpg" alt="Product 32">
-            <div class="product-info">
-                <h2>Mastech 266 @ 830L</h2>
-
-            </div>
-        </div>
     </main>
-    <footer style="text-align:center; padding: 1rem; background-color: rgb(18, 18, 62); color:white;">
-    &copy; 2025 Prakash Electronics. All rights reserved.
-</footer>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        &copy; 2025 Prakash Electronics.
+        All rights reserved.
+
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
 
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.getElementById('nav-links');
+
+        const hamburger =
+            document.querySelector('.hamburger');
+
+        const navLinks =
+            document.getElementById('nav-links');
+
 
         hamburger.addEventListener('click', () => {
+
             navLinks.classList.toggle('active');
+
+            const isActive =
+                navLinks.classList.contains('active');
+
+            hamburger.setAttribute(
+                'aria-expanded',
+                isActive
+            );
+
         });
+
     </script>
 
 </body>

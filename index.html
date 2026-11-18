@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prakash Electronics</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* Good practice for layout consistency */
         }
 
         #myVideo {
@@ -25,9 +27,7 @@
             object-fit: cover;
             z-index: -1;
             opacity: 0.8;
-            /* Adjust transparency */
         }
-
 
         body {
             color: white;
@@ -42,7 +42,15 @@
             background-color: rgb(18, 18, 62);
             padding: 1rem 5%;
             position: relative;
-            /* Needed for positioning the mobile menu */
+        }
+
+        /* NAVBAR BRANDING */
+        nav .left {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.55rem;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            color: white;
         }
 
         nav .right ul {
@@ -65,12 +73,6 @@
             color: rgb(155, 155, 250);
         }
 
-        .left {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        /* Hamburger Menu Icon Styling */
         .hamburger {
             display: none;
             cursor: pointer;
@@ -94,7 +96,7 @@
             padding: 0 5%;
         }
 
-        .firstSection>div {
+        .firstSection > div {
             width: 45%;
         }
 
@@ -141,10 +143,10 @@
         }
 
         .secondSection {
-            max-width: 1200px;
+            max-width: 1500px;
             margin: 40px auto;
             height: auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
 
         .products {
@@ -156,12 +158,13 @@
             padding: 20px 5px;
         }
 
-        /* --- NEW: CSS FOR RESPONSIVE PRODUCT GRID --- */
+        /* 4 PRODUCTS IN ONE ROW */
         .product-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem; /* The space between items */
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            width: 100%;
+            align-items: stretch;
         }
 
         .product-item {
@@ -169,59 +172,92 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            background: rgba(255, 255, 255, 0.7); /* Slight background to make text readable */
-            padding: 1rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-
-            /* Default: 4 columns on large screens */
-            flex-basis: calc(25% - 2rem);
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-width: 0;
         }
 
-        .product-item img {
-            height: 160px;
-            width: 160px;
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* SAME IMAGE AREA FOR ALL PRODUCTS */
+        .product-image {
+            width: 100%;
+            height: 390px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
             cursor: pointer;
-            border-radius: 1rem;
-            object-fit: cover;
             transition: transform 0.3s ease-in-out;
         }
 
-        .product-item img:hover {
-            transform: scale(1.05);
+        .product-item:hover .product-image img {
+            transform: scale(1.02);
         }
 
+        /* PRODUCT DESCRIPTION - SAME LEVEL */
         .product-item p {
-            margin-top: 10px;
+            width: 100%;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0 5px;
             color: black;
-            font-weight: bold;
-            font-size: 0.9rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        /* --- END OF NEW GRID CSS --- */
 
+        /* TABLET */
+        @media (max-width: 1100px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            /* --- NEW: 3 columns on tablets --- */
-            .product-item {
-                flex-basis: calc(33.333% - 2rem);
+            .product-image {
+                height: 400px;
             }
         }
 
+        /* MOBILE */
         @media (max-width: 768px) {
             nav {
                 height: 70px;
             }
 
-            .hamburger {
-                display: flex;
-            }
-
-            .left {
+            nav .left {
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+            }
+
+            .hamburger {
+                display: flex;
             }
 
             nav .right ul {
@@ -260,7 +296,7 @@
                 margin: 40px 0;
             }
 
-            .firstSection>div {
+            .firstSection > div {
                 width: 90%;
             }
 
@@ -273,14 +309,31 @@
                 width: 50%;
                 margin: 20px 0;
             }
-            
-            /* --- NEW: 2 columns on small tablets/large phones --- */
-            .product-item {
-                flex-basis: calc(50% - 2rem);
+
+            .secondSection {
+                padding: 0 20px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .product-image {
+                height: 350px;
+            }
+
+            .product-item p {
+                font-size: 0.85rem;
             }
         }
 
+        /* SMALL PHONES */
         @media (max-width: 480px) {
+            nav .left {
+                font-size: 1.25rem;
+            }
+
             .leftSection {
                 font-size: 1.5rem;
             }
@@ -292,30 +345,41 @@
             .products {
                 font-size: 1.2rem;
             }
-            
-            /* --- NEW: 1 column on small phones --- */
-            .product-item {
-                flex-basis: 90%; /* Take up most of the width */
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 400px;
+            }
+
+            .product-item p {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 
 <body>
+
     <video autoplay loop muted playsinline id="myVideo">
         <source src="5846591-hd_1920_1080_25fps.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+
     <header>
         <nav>
             <div class="left">
                 Prakash Electronics
+
                 <div class="hamburger">
                     <div class="line"></div>
                     <div class="line"></div>
                     <div class="line"></div>
                 </div>
             </div>
+
             <div class="right">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -328,84 +392,116 @@
     </header>
 
     <main>
+
         <section class="firstSection">
             <div class="leftSection">
                 <span class="purple"><b>Prakash Electronics</b></span>
-                <div class="import"><b>Importer & Stockists of</b></div>
+                <div class="import"><b>Importer, Stockists & Pioneers of</b></div>
                 <span id="element"></span>
             </div>
+
             <div class="rightSection">
-                <img src="https://3.imimg.com/data3/HP/CR/MY-3059290/prakash-electronics-logo-120x120.png"
-                    alt="Prakash Electronics Logo">
+                <img
+                    src="https://3.imimg.com/data3/HP/CR/MY-3059290/prakash-electronics-logo-120x120.png"
+                    alt="Prakash Electronics Logo"
+                >
             </div>
         </section>
+
         <hr>
+
         <section class="secondSection">
+
             <h3 class="products">Main Products</h3>
-            
+
             <div class="product-grid">
+
                 <div class="product-item">
-                    <img src="https://i.pinimg.com/736x/0b/c1/93/0bc193794acc27bec7e02e70c13a7ded.jpg"
-                        alt="Elcon gold capillary thermostat">
-                    <p>Elcon gold capillary thermostat</p>
+                    <div class="product-image">
+                        <img
+                            src="images/heating elements for high temp appl.png"
+                            alt="Heating Elements for High Temperature Applications"
+                        >
+                    </div>
+                    <p>Heating Elements for High Temperature Applications</p>
                 </div>
+
                 <div class="product-item">
-                    <img src="https://i.pinimg.com/736x/18/ed/4a/18ed4a04b3ee754298780b16d711ff6f.jpg"
-                        alt="FG/RTD/Teflon cable">
-                    <p>FG/RTD/Teflon cable</p>
+                    <div class="product-image">
+                        <img
+                            src="images/hre.png"
+                            alt="HRE"
+                        >
+                    </div>
+                    <p>HRE</p>
                 </div>
+
                 <div class="product-item">
-                    <img src="https://i.pinimg.com/736x/0c/bd/de/0cbddef90e56baed5196685da5627184.jpg" alt="Simmerstat">
-                    <p>Simmerstat</p>
+                    <div class="product-image">
+                        <img
+                            src="images/Nichrome80-20.png"
+                            alt="Nichrome 80-20"
+                        >
+                    </div>
+                    <p>Nichrome 80-20</p>
                 </div>
+
                 <div class="product-item">
-                    <img src="https://i.pinimg.com/736x/42/75/02/427502543a2752e2e8f3fcd905f355cf.jpg" alt="Hour meter">
-                    <p>Hour meter</p>
+                    <div class="product-image">
+                        <img
+                            src="images/ocr21al6nb.png"
+                            alt="OCr21Al6Nb"
+                        >
+                    </div>
+                    <p>OCr21Al6Nb</p>
                 </div>
-                <div class="product-item">
-                    <img src="https://i.pinimg.com/736x/07/5f/1c/075f1cdbb4772e214f120e8e47446b54.jpg"
-                        alt="Nichrome Wire & Ribbon">
-                    <p>Nichrome Wire & Ribbon</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://i.pinimg.com/736x/62/e1/c4/62e1c4ebdcde94f9bcc5a423ac2308ce.jpg"
-                        alt="Kanthal Wires">
-                    <p>Kanthal Wires</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://i.pinimg.com/736x/5a/9b/20/5a9b2015be39e13cd6188454f0c11489.jpg"
-                        alt="Bare thermocouple wire">
-                    <p>Bare thermocouple wire</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://i.pinimg.com/736x/51/3f/4e/513f4e089f0906c00b8596e8d3cec27d.jpg"
-                        alt="Spark ferrous-base wire">
-                    <p>Spark ferrous-base wire</p>
-                </div>
+
             </div>
         </section>
+
     </main>
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
     <script>
-        // Typed.js script for the typing animation
         var typed = new Typed('#element', {
-            strings: ['Stem type gesyer thermostat', 'Teflon cable', ' FG Cable Bare Copper/SS Mix', 'RTD cable', ' Compensating cable', '1/22 twisted cable', 'silica quartz tube', 'Infra heat ceramic connector', 'Elcon gold capillary thermostat', 'Thermocouple spring loaded', 'Girish all item', 'Clamp meter & multimeter', 'Thermo hygrometer', 'Simmerstat', 'Elcon', 'Ajay', 'Sunbim', 'Hour meter', 'FG sleeves 1.1kV & 4k', 'Frontier timer', 'Nichrome wire', 'Nichrome ribbon', 'Cu-Ni wire', 'Kanthal wires', 'Beryllium copper', 'MGO powder', 'EGO capillary thermostat', 'Thermocouple connector', 'Mineral insulated cable', 'Backer coil', 'Theeta', 'Bare thermocouple wire', 'Rotary switch', 'Khabsrdar', 'Mastech 266 @ 830L', 'Spark ferrous base wire'],
+            strings: [
+    'Spark Brand Heating Wires',
+    'Furnace Manufacturing',
+    'Industrial Furnaces',
+    'Heat Treatment',
+    'Heating Elements',
+    'Heating Wires',
+    'Resistance Heating',
+    'Resistance Wire',
+    'Heating Alloys',
+    'High Temperature Alloys',
+    'Industrial Heating',
+    'Electric Furnaces',
+    'Heat Treatment Furnaces',
+    'Furnace Components',
+    'NiCr Wire',
+    'FeCrAl Wire',
+    'Furnace OEM',
+    'Heat Treatment Equipment',
+    'Industrial Heating Solutions',
+    'Heating Products',
+    'Furnace Manufacturers'
+],
             typeSpeed: 50,
             loop: true,
-            backSpeed: 25,
+            backSpeed: 25
         });
 
-        // JavaScript for the Hamburger Menu
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".right ul");
 
         hamburger.addEventListener("click", () => {
-            // Toggle the 'active' class on both the hamburger and the menu
             hamburger.classList.toggle("active");
             navMenu.classList.toggle("active");
         });
     </script>
+
 </body>
 
 </html>
